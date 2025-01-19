@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyLab AI - Text Summarizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white shadow-sm">
+            <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="/static/logo.png" alt="TinyLab AI Logo" class="h-10">
+                    <div>
+                        <h1 class="text-xl font-semibold text-gray-900">TinyLab AI</h1>
+                        <p class="text-sm text-gray-600">Developing AI-powered tools</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow py-8 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Demo</h2>
+                </div>
+
+                <!-- Summarizer Form -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <form method="POST" class="space-y-6">
+                        <div>
+                            <label for="text" class="block text-sm font-medium text-gray-700 mb-2">
+                                Enter your text
+                            </label>
+                            <textarea 
+                                name="text" 
+                                id="text" 
+                                rows="6" 
+                                class="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                placeholder="Paste your text here..."
+                            >{{ original_text if original_text else '' }}</textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Summarize
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Results Section -->
+                    {% if summary %}
+                    <div class="mt-8">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Summary</h2>
+                        <div class="bg-gray-50 rounded-lg p-4 text-gray-700">
+                            {{ summary }}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Error Display -->
+                    {% if error %}
+                    <div class="mt-8">
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <div class="flex">
+                                <div class="ml-3">
+                                    <p class="text-sm text-red-700">
+                                        {{ error }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t mt-8">
+            <div class="max-w-6xl mx-auto px-4 py-6">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="text-sm text-gray-600">
+                        Contact: <a href="mailto:info@tinylab.ai" class="text-blue-600 hover:text-blue-800">info@tinylab.ai</a>
+                    </div>
+                    <div class="text-sm text-gray-600 md:text-right">
+                        Perth, Western Australia
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
