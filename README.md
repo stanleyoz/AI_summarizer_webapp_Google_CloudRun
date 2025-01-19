@@ -1,4 +1,4 @@
-# TinyLab AI Text Summarizer
+# Build and deploy a basic AI Text Toy Demo Summarizer
 
 A Flask-based web application that leverages Google Cloud Vertex AI (Gemini Pro) for text summarization.
 
