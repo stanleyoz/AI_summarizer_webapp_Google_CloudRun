@@ -179,6 +179,9 @@ docker build -t summarizer-image .
 docker tag summarizer-image YOUR_REGION-docker.pkg.dev/YOUR_PROJECT_ID/summarizer-image/summarizer:latest
 docker push YOUR_REGION-docker.pkg.dev/YOUR_PROJECT_ID/summarizer-image/summarizer:latest
 ```
+##
+
+A working demo of our toy summarizer demo created from above stepas can be found at https://summarizer.tinylab.ai 
 
 ## License
 
